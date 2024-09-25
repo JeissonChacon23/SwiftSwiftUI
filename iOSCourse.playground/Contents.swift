@@ -305,6 +305,18 @@ print(dayOfWeek)
 
 
 //Bucles
+var count = 0
+while count < 10{
+    print("Boucle \(count)")
+    count += 1
+}
+
+var count2 = 5
+repeat{
+    print("At laast once")
+}while count2 < 0
+
+
 for i in 1...10{
     print("Boucle \(i)")
 }
@@ -313,3 +325,157 @@ for i in dayOfWeek{
     print(i)
 }
         
+for day in dayOfWeek{
+    if day == "Thrusday"{
+        print("Its Thursday")
+        break
+    }else{
+        print("Its not Thursday")
+    }
+}
+
+for day in dayOfWeek{
+    if day == "Thrusday"{
+        print("Its Thursday")
+        break
+    }else{
+        print("Its not Thursday")
+    }
+}
+
+for day in dayOfWeek{
+    if day == "Thrusday"{
+        print("-----------")
+        break
+    }else{
+        print("xxxxxxxxxx")
+        continue
+    }
+}
+
+
+
+//Exercise 3
+//
+func getNumberMultiply(_ number: Int){
+    for i in 1...10{
+        print("\(i) * \(number) = \(i*number)")
+    }
+}
+getNumberMultiply(4)
+
+var totalSum: Int = 0
+for i in 1...100{
+    if i % 2 == 0{
+        totalSum += i
+    }
+}
+print(totalSum)
+
+var totalSumContinue: Int = 0
+for i in 1...100{
+    if i % 2 == 0{
+        continue
+    }
+    totalSum += i
+}
+print(totalSum)
+
+//Exercise 9
+func vowesInWord(_ word: String){
+    if word.contains("a") || word.contains("e") || word.contains("i") || word.contains("o") || word.contains("u"){
+        print("The word contains a vowel")
+    }else{
+        print("The word does not contain a vowel")
+    }
+}
+
+func vowelCounter(_ text: String){
+    var totalVowels: Int = 0
+    for character in text{
+        switch character.lowercased(){
+        case "a", "e", "i", "o", "u": totalVowels += 1
+        default: continue
+        }
+    }
+    print("\(text) = \(totalVowels) vowels")
+}
+vowelCounter("hola")
+vowelCounter("Aris")
+
+
+//Tuplas
+var tupla = ("Jeisson", 28, true, "Av 10", "3163551439", 1.71)
+print(tupla.0)
+print(tupla.2)
+
+//Dictionaries
+var dicc:[String: Any] = ["name": "Jeisson", "age": 28, "isStudent": true, "address": "Av 10", "phone": "3163551439", "height": 1.71]
+var myDictionaryName: String = dicc["name"] as? String ?? "No name"
+print(myDictionaryName)
+
+for (key, value) in dicc{
+    print("The key \(key) contein \(value)")
+}
+
+
+//Nullability
+var stringReal: String = "String Real Value"
+var exampleNil: String? = nil
+var people2: String? = nil
+
+print(stringReal)
+//print(exampleNil)
+
+func exampleNil(_ text: String){
+    
+}
+
+/*
+ exampleString(people2)
+ exampleNil(exampleNil ?? "Example")
+ exampleNil(exampleNil!)
+ */
+ 
+
+func exampleNil(_ text: String?){
+    if let text = text{
+        print(text)
+    }else{
+        print("No text")
+    }
+    
+    guard let text = text else{
+        return
+    }
+    print(text)
+}
+
+
+//Classes
+class Person{
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int){
+        self.name = name
+        self.age = age
+    }
+    
+    func sayHello(){
+        print("Hello, my name is \(name) and I am \(age) years old")
+    }
+}
+
+var jeisson: Person = Person(name: "Jeisson", age: 28)
+var jose: Person = Person(name: "Jose", age: 29)
+
+jeisson.sayHello()
+jose.sayHello()
+
+
+struct ExampleStruct{
+    var name: String
+    var age: Int
+}
+var exampleStruct: ExampleStruct = ExampleStruct(name: "Jeisson", age: 28)
